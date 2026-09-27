@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The system installer needs this to accept an APK from the app. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <application>
+        <!-- Own subclass and authority, so it never collides with an app's own FileProvider.
+             Only cache/app_updater/ is exposed: the directory the installer writes verified APKs to. -->
+        <provider
+            android:name="dev.flavordrake.app_updater.UpdaterFileProvider"
+            android:authorities="${applicationId}.app_updater.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/app_updater_paths" />
+        </provider>
+    </application>
+</manifest>

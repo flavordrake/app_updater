@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Only verified APKs the installer just wrote are exposed. -->
+<paths>
+    <cache-path name="app_updater" path="app_updater/" />
+</paths>
